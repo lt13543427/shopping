@@ -36,9 +36,12 @@
             <h2 class="text-2xl text-end font-bold w-full">商品數量: 0</h2>
             <h2 class="text-2xl text-end font-bold w-full">商品總金額: $0</h2>
         </div>
-        <div class="flex justify-between gap-4 ml-3">
-            <div class="flex justify-center items-center bg-[#8c5046] text-white rounded-md px-4 py-1 cursor-pointer md:p-0">
-                <span> 回上頁繼續購買 </span>
+        <div class="flex justify-between gap-4 ml-3 mr-3">
+            <div class="flex justify-center items-center  bg-slate-500 text-white rounded-md px-4 py-1 cursor-pointer md:p-0">
+                <span><RouterLink to="/">回上頁繼續購買</RouterLink></span>
+            </div>
+            <div class="flex justify-center items-center  bg-slate-500 text-white rounded-md px-4 py-1 cursor-pointer md:p-0">
+                <span><RouterLink to="/formView">確認購買</RouterLink></span>
             </div>
         </div>
     </div>
