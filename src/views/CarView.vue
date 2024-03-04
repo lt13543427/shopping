@@ -12,9 +12,9 @@
                     <div class=" grid-top grid-cols-6 grid border-y font-bold  gap-x-3">
                         <div class="grid-th text-center">Header 1</div>
                         <div class="grid-th text-center">商品圖片</div>
-                        <div class="grid-th">商品名稱</div>
+                        <div class="grid-th text-center">商品名稱</div>
                         <div class="grid-th text-center">價錢</div>
-                        <div class="grid-th opacity-0"></div>
+                        <div class="grid-th opacity-0 text-center"></div>
                     </div>
                 </div>
                 <div class="grid-tbody">
@@ -25,7 +25,7 @@
                         <div class="flex justify-center">
                             <img src="../img/下載.png" alt="" class="h-[100px] w-[100px]">
                         </div>
-                        <div class="flex items-center">按摩棒</div>
+                        <div class="flex justify-center items-center ">按摩棒</div>
                         <div class="grid-td flex justify-center items-center">999$</div>
                         <div class="grid-td flex justify-center items-center"></div>
                     </div>

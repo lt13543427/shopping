@@ -23,6 +23,11 @@ const router = createRouter({
       path: '/formView',
       name: 'formView',
       component: () => import('../views/formView.vue')
+    },
+    {
+      path: '/finishView',
+      name: 'finishView',
+      component: () => import('../views/finishView.vue')
     }
     
   ]
