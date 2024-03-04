@@ -22,9 +22,9 @@ export default{
     <div v-for="item in productdataArr" :key="item.id" class="w-1/6 min-w-[150px] min-h-[500px] flex flex-col rounded-xl border overflow-hidden ">
       <img src="../img/下載.png" alt="">
       <div class="md-5">
-        <h2 class="my-4">{{item.name}}</h2>
-        <p class="my-4 break-words">{{ item.description }}</p>
-        <p class="my-5">{{ item.price }}</p>
+        <h2 class="my-4">商品名稱:{{item.name}}</h2>
+        <p class="my-4 break-words">商品介紹:{{ item.description }}</p>
+        <p class="my-5">商品價格:{{ item.price }}</p>
       </div>
       <div class="flex-grow"></div>
       <div class="flex">
