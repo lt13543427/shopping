@@ -25,7 +25,7 @@
                         <div class="flex justify-center">
                             <img src="../img/下載.png" alt="" class="h-[100px] w-[100px]">
                         </div>
-                        <div class="flex justify-center items-center ">按摩棒</div>
+                        <div class="flex justify-center items-center ">章魚</div>
                         <div class="grid-td flex justify-center items-center">999$</div>
                         <div class="grid-td flex justify-center items-center"></div>
                     </div>
