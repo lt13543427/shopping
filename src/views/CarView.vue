@@ -13,7 +13,13 @@ export default {
   },
 
   methods: {
-    ...mapActions(usershopCart, ["addCart", "getTotalQuantity", "getTotalPrice"]),
+    ...mapActions(usershopCart, ["addCart", "getTotalQuantity", "getTotalPrice", "addCheckData"]),
+
+    checkedproducts(cartView) {
+      this.addCheckData(cartView);
+      this.getTotalQuantity();
+      this.getTotalPrice();
+    },
   },
 };
 </script>
@@ -37,7 +43,7 @@ export default {
         <div class="grid-tbody">
           <div v-for="cartView in shopCartData" :key="cartView.id" class="grid-tr grid-cols-6 grid border-b min-h-[80px] gap-x-3">
             <div class="flex justify-center">
-              <input v-model="item.checked" type="checkbox" />
+              <input v-model="cartView.checked" @change="checkedproducts(cartView)" type="checkbox" />
             </div>
             <div class="flex justify-center">
               <img :src="cartView.pic" alt="" class="h-[100px] w-[100px]" />
@@ -61,9 +67,6 @@ export default {
     <div class="flex justify-end flex-wrap mr-3">
       <h2 class="text-2xl text-end font-bold w-full">商品數量:{{ totalQuantity }}</h2>
       <h2 class="text-2xl text-end font-bold w-full">商品總金額:${{ totalPrice }}</h2>
-      {{ console.log("Total Quantity:", getTotalQuantity()) }}
-      {{ console.log("Total Price:", getTotalPrice()) }}
-      {{ console.log(shopCartData) }}
     </div>
     <div class="flex justify-between gap-4 ml-3 mr-3">
       <div class="flex justify-center items-center bg-slate-500 text-white rounded-md px-4 py-1 cursor-pointer md:p-0">

@@ -36,19 +36,19 @@ export const usershopCart = defineStore('shopping-cart', {
 
         addCheckData(product) {
             if (product.checked) {
-                this.checkedData.push(product);
+              this.checkedData.push(product);
             } else {
-                this.checkedData = this.shopCartData.filter(item => item.id !== product.id);
+              this.checkedData = this.checkedData.filter(item => item.id !== product.id);
             }
-        },
+          },
 
         getTotalPrice() {
-            this.totalPrice = this.shopCartData.reduce((total, item) => {return total + item.price * item.quantity}, 0);
-        },
+            this.totalPrice = this.checkedData.reduce((total, item) => total + item.price * item.quantity, 0);
+          },
 
-        getTotalQuantity() {
-            this.totalQuantity = this.shopCartData.reduce((total, item) => {return total + item.quantity}, 0);
-        },
+          getTotalQuantity() {
+            this.totalQuantity = this.checkedData.reduce((total, item) => total + item.quantity, 0);
+          },
 
         resetCartData() {
             this.shopCartData = [];
