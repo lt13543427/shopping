@@ -46,12 +46,16 @@ export const usershopCart = defineStore('shopping-cart', {
             this.totalPrice = this.checkedData.reduce((total, item) => total + item.price * item.quantity, 0);
           },
 
-          getTotalQuantity() {
+        getTotalQuantity() {
             this.totalQuantity = this.checkedData.reduce((total, item) => total + item.quantity, 0);
           },
 
-        resetCartData() {
+          resetCartData() {
+            this.checkedData = [];
             this.shopCartData = [];
-        },
+            this.totalPrice = 0;
+            this.totalQuantity = '';
+          },
+
     },
 });

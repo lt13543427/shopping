@@ -73,7 +73,7 @@ export default {
         <span><RouterLink to="/">回上頁繼續購買</RouterLink></span>
       </div>
       <div class="flex justify-center items-center bg-slate-500 text-white rounded-md px-4 py-1 cursor-pointer md:p-0">
-        <span><RouterLink to="/formView">確認購買</RouterLink></span>
+        <span @click="addCheckData"><RouterLink to="/formView">確認購買</RouterLink></span>
       </div>
     </div>
   </div>
