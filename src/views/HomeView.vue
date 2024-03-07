@@ -1,10 +1,22 @@
 <script>
+import inputBtnView from "@/components/inputBtnView.vue";
+import { usershopCart } from "@/stores/shoppingCart";
+import { mapState, mapActions } from "pinia";
 export default {
+  components: {
+    inputBtnView,
+  },
+
   data() {
     return {
       currentView: "table",
       card: {},
+      productdataArr: [],
     };
+  },
+
+  computed: {
+    ...mapState(usershopCart, ["cartData"]),
   },
 
   async mounted() {
@@ -21,8 +33,9 @@ export default {
     toggleView(view) {
       this.currentView = view;
     },
+
+    ...mapActions(usershopCart, ["addCart"]),
   },
-  components: {},
 };
 </script>
 
@@ -47,13 +60,16 @@ export default {
           <div class="flex-grow"></div>
           <div class="flex">
             <div>數量：</div>
-            <div class="flex h-[35px]">
-              <button class="w-1/5 border rounded-l-xl">-</button>
-              <input type="number" class="w-2/4 border text-center" value="1" />
-              <button class="w-1/5 border rounded-r-xl">+</button>
-            </div>
+            <inputBtnView
+              @update="
+                (newValue) => {
+                  item.quantity = newValue;
+                }
+              "
+              :quantity="item.quantity"
+            ></inputBtnView>
           </div>
-          <div class="text-center bg-slate-500 text-white mt-3"><i class="fa-solid fa-cart-shopping relative"></i>加入購物車</div>
+          <button @click="addCart(item)" type="button" class="text-center bg-slate-500 text-white mt-3"><i class="fa-solid fa-cart-shopping relative"></i>加入購物車</button>
         </div>
       </div>
     </div>
@@ -84,12 +100,15 @@ export default {
             </div>
             <div class="grid-td flex justify-center items-center">
               <div class="flex flex-col">
-                <div class="flex h-[35px]">
-                  <button class="w-1/5 border rounded-l-xl">-</button>
-                  <input type="number" class="w-2/4 border text-center" value="1" />
-                  <button class="w-1/5 border rounded-r-xl">+</button>
-                </div>
-                <div class="text-center bg-slate-500 text-white mt-3 w-[180px]"><i class="fa-solid fa-cart-shopping relative"></i>加入購物車</div>
+                <inputBtnView
+                  @update="
+                    (newValue) => {
+                      item.quantity = newValue;
+                    }
+                  "
+                  :quantity="item.quantity"
+                ></inputBtnView>
+                <button type="button" @click="addCart(item)" class="text-center bg-slate-500 text-white mt-3 w-[180px]"><i class="fa-solid fa-cart-shopping relative"></i>加入購物車</button>
               </div>
             </div>
           </div>
