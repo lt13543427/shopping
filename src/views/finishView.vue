@@ -32,7 +32,7 @@ export default {
             <div class="flex justify-center">
               <img :src="finishView.pic" alt="" class="h-[100px] w-[100px]" />
             </div>
-            <div class="flex justify-center">{{ finishView.name }}</div>
+            <div class="flex justify-center items-center">{{ finishView.name }}</div>
             <div class="flex justify-center items-center">{{ finishView.quantity }}</div>
             <div class="grid-td flex justify-center items-center">${{ finishView.price }}</div>
           </div>
@@ -50,12 +50,12 @@ export default {
         <br />
         <div class="grid-thead">
           <div class="grid-tr grid-cols-6 grid border-b min-h-[80px] gap-x-3">
-            <div class="flex justify-center items-center">拖椅子</div>
-            <div class="flex justify-center items-center">0800092000</div>
-            <div class="flex justify-center items-center">花田一路87號</div>
-            <div class="grid-td flex justify-center items-center">超商自取</div>
-            <div class="grid-td flex justify-center items-center">sss123456@gmail.com</div>
-            <div class="grid-td flex justify-center items-center">信用卡付款</div>
+            <div class="flex justify-center items-center">{{ guestData.name }}</div>
+            <div class="flex justify-center items-center">{{ guestData.phone }}</div>
+            <div class="flex justify-center items-center">{{ guestData.address }}</div>
+            <div class="grid-td flex justify-center items-center">{{ guestData.pickup }}</div>
+            <div class="grid-td flex justify-center items-center">{{ guestData.email }}</div>
+            <div class="grid-td flex justify-center items-center">{{ guestData.payment }}</div>
           </div>
         </div>
       </div>

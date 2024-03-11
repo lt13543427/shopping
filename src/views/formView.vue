@@ -12,13 +12,9 @@ export default {
     checkFormInput() {
       if (this.guestData.name === "" || this.guestData.phone === "" || this.guestData.email === "" || this.guestData.address === "" || this.guestData.payment === "" || this.guestData.pickup === "") {
         alert("請輸入完整資料");
+        this.$router.push("/formView");
+        return;
       } else {
-        this.$router.push("/fromView");
-      }
-    },
-
-    checkFormInput2() {
-      if (this.shopCartData.name !== "" || this.shopCartData.phone !== "" || this.shopCartData.email !== "" || this.shopCartData.address !== "" || this.shopCartData.payment !== "" || this.shopCartData.pickup !== "") {
         alert("已送出訂單");
       }
     },
@@ -56,19 +52,19 @@ export default {
     <form action="">
       <div class="mb-6 px-5">
         <label for="name">姓名</label>
-        <input v-model="guestData.name" type="text" id="name" class="input-text" />
+        <input v-model="guestData.name" type="text" id="name" class="input-text" required />
       </div>
       <div class="mb-6 px-5">
-        <label for="phone">電話</label>
-        <input v-model="guestData.phone" type="text" id="phone" class="input-text" />
+        <label for="tel">電話</label>
+        <input v-model="guestData.phone" type="tel" id="phone" class="input-text" required />
       </div>
       <div class="mb-6 px-5">
         <label for="name">地址</label>
-        <input v-model="guestData.address" type="text" id="name" class="input-text" />
+        <input v-model="guestData.address" type="text" id="name" class="input-text" required />
       </div>
       <div class="mb-6 px-5">
         <label for="email">信箱</label>
-        <input v-model="guestData.email" type="text" id="email" class="input-text" />
+        <input v-model="guestData.email" type="email" id="email" class="input-text" required />
       </div>
       <div class="mb-6 px-5">
         <label for="payment-method">付款方式</label>
@@ -87,11 +83,11 @@ export default {
         <label for="name">運送方式</label>
         <div class="flex gap-5">
           <div class="flex items-center">
-            <input type="radio" id="Pick-up1" name="Pick-up" required value="宅配" />
+            <input v-model="guestData.payment" type="radio" id="Pick-up1" name="Pick-up" required value="宅配" />
             <label for="Pick-up1">宅配</label>
           </div>
           <div class="flex items-center">
-            <input type="radio" id="Pick-up2" name="Pick-up" required value="超商取貨" />
+            <input v-model="guestData.payment" type="radio" id="Pick-up2" name="Pick-up" required value="超商取貨" />
             <label for="Pick-up2">超商取貨</label>
           </div>
         </div>
@@ -108,7 +104,7 @@ export default {
         <span><RouterLink to="/">回上頁繼續購買</RouterLink></span>
       </div>
       <div class="flex justify-center items-center bg-slate-500 text-white rounded-md px-4 py-1 cursor-pointer md:p-0">
-        <span><RouterLink @click="checkFormInput()" to="/finishView">確認購買</RouterLink></span>
+        <span @click="checkFormInput()"><RouterLink to="/finishView">確認購買</RouterLink></span>
       </div>
     </div>
   </div>
